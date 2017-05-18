@@ -9,4 +9,8 @@ function init() {
 
 init();
 
-if (module.hot) module.hot.accept('./components/app', init);
+if (process.env.NODE_ENV !== 'production') {
+	if (module.hot) {
+		module.hot.accept('./components/app', init);
+	}
+}

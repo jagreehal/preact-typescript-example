@@ -1,33 +1,20 @@
 var path = require("path");
+const Merge = require("webpack-merge");
+const CommonConfig = require("./webpack.common");
 
-module.exports = {
-  entry: "./src",
-  output: {
-    path: path.join(__dirname, "build"),
-    filename: "bundle.js"
-  },
-  module: {
-    rules: [
-      {
-        test: /\.tsx?/i,
-        loader: "ts-loader",
-        exclude: path.join(__dirname, 'node_modules')
-      }
-    ]
-  },
-  resolve: {
-    extensions: ['.json', '.ts', '.tsx', '.js', '.jsx']
-  },
-  devtool: "source-map",
+module.exports = function(env) {
+  return Merge(CommonConfig, {
+    devtool: 'cheap-eval-source-map',
 
-  devServer: {
-    // serve up any static files from src/
-    contentBase: path.join(__dirname, "src"),
+    devServer: {
+      // serve up any static files from src/
+      contentBase: path.join(__dirname, "src"),
 
-    // enable gzip compression:
-    compress: true,
+      // enable gzip compression:
+      compress: true,
 
-    // enable pushState() routing, as used by preact-router et al:
-    historyApiFallback: true
-  }
+      // enable pushState() routing, as used by preact-router et al:
+      historyApiFallback: true
+    }
+  });
 };
