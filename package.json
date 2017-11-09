@@ -10,13 +10,13 @@
     "start": "webpack-dev-server --progress --hot --inline"
   },
   "devDependencies": {
-    "@types/node": "^7.0.14",
+    "@types/node": "^8.0.50",
     "@types/webpack-env": "^1.13.0",
     "awesome-typescript-loader": "^3.1.2",
     "rimraf": "^2.6.1",
-    "ts-loader": "^2.0.3",
+    "ts-loader": "^3.1.1",
     "typescript": "^2.2.2",
-    "webpack": "^2.4.1",
+    "webpack": "^3.8.1",
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
